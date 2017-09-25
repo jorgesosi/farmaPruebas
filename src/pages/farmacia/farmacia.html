@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>farmacia</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+      <ion-row>
+          <ion-col>
+            <agm-map
+              [latitude]="ubicacion.lat"
+              [longitude]="ubicacion.lng"
+              [zoom]="17"
+              [streetViewControl]="false"
+              [disableDefaultUI]="true"> 
+              <agm-marker 
+                [latitude]="ubicacion.lat" 
+                [longitude]="ubicacion.lng">
+              </agm-marker>   
+            </agm-map>
+          </ion-col>
+        </ion-row>
+  </ion-grid>
+
+</ion-content>

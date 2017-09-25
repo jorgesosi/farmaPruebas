@@ -1,0 +1,32 @@
+[
+    {
+        "nombre": "acuario",
+        "direccion": "Juan Manuel de Rosas 498",
+        "horario": "Abierto de 20 a 04",
+        "lat": -41.132635,
+        "lng": -71.317015,
+        "icon": "/assets/img/marker-blue.png",
+        "image": "assets/img/cruz2.png",
+        "tipo": 1,
+        "descrip": "",
+        "start1": "19:00",
+        "end1": "23:00",
+        "start2": "19:00",
+        "end2": "23:00"
+    },
+    {
+        "nombre": "Alta Catedral",
+        "direccion": "Plaza Amancay Loc 18 Cerro Catedral",
+        "horario": "",
+        "lat": -41.132645,
+        "lng": -71.317025,
+        "icon": "/assets/img/marker-green.png",
+        "image":"assets/img/cruz2.png",
+        "tipo": 1,
+        "descrip": "",
+        "start1": "19:00",
+        "end1": "23:00",
+        "start2": "19:00",
+        "end2": "23:00"
+    }
+]
