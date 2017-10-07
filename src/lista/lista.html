@@ -1,0 +1,25 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lista Farmacias</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item   *ngFor="let farmacias of farmacias" >
+        <ion-avatar class= "beat animateImage" item-start>
+          <img src="{{farmacias.image}}">
+        </ion-avatar>
+        <div class="animateText">
+            <h2>{{farmacias.nombre}}<b></b></h2>
+              <br>
+              {{farmacias.horario.lv[0].start1}}{{farmacias.horario.lv[1].end1}}
+          </div>
+        </ion-item>
+      </ion-list>
+  
+</ion-content>
