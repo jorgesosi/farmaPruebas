@@ -16,21 +16,26 @@ export class Dataservice {
   constructor(public http: Http) {
     console.log('Hello Dataservice Provider');
   }
+
   obtenerdatos(){
     return this.http.get('assets/markers/prueba.json')
     .map((response) => response.json()
     )
   }
+
 obtenerturnos(){
   return this.http.get('assets/markers/turnos.json')
   .map((response) => response.json()
   )
 }
-
+obtenerFarmaciasdeturno(){
+  return this.http.get('assets/markers/prueba.json')
+  .map((response) => response.json()
+)
+}
   obtenerdatos2(): Observable<Farmacias[]>{
     return this.http.get('assets/markers/prueba.json')
-      .map(res=>
-       res.json()
+      .map(res=>res.json()
       )
   }
 

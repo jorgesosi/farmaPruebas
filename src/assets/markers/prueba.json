@@ -451,8 +451,8 @@
             {"start2": "16:00"},
             {"end2": "21:00"}
         ]},
-        "lat": -41.133664,
-        "lng": -71.306974,
+        "lat": -41.136435,
+        "lng": -71.307999,
         "icon": {"url":"./assets/icon/marker-pink.png"},
         "image": [
             {"imagen0":"assets/img/cruz2.png"},

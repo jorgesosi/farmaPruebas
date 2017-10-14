@@ -4,5 +4,35 @@
         "idFarma1":"42",
         "idFarma2":"26",
         "idFarma3":"37"
+    },
+    {
+        "dia":"10-10",
+        "idFarma1":"20",
+        "idFarma2":"31",
+        "idFarma3":"10"
+    },
+    {
+        "dia":"11-10",
+        "idFarma1":"20",
+        "idFarma2":"31",
+        "idFarma3":"10"
+    },
+    {
+        "dia":"12-10",
+        "idFarma1":"20",
+        "idFarma2":"31",
+        "idFarma3":"10"
+    },
+    {
+        "dia":"13-10",
+        "idFarma1":"25",
+        "idFarma2":"28",
+        "idFarma3":"34"
+    },
+    {
+        "dia":"14-10",
+        "idFarma1":"7",
+        "idFarma2":"40",
+        "idFarma3":"19"
     }
 ]

@@ -10,16 +10,24 @@
 
 <ion-content padding>
     <ion-list>
-        <ion-item   *ngFor="let farmacias of farmacias" >
+      <ion-item   *ngFor="let farmacias of farmacias ; let index = index"  >
         <ion-avatar class= "beat animateImage" item-start>
-          <img src="{{farmacias.image}}">
+          <img *ngIf="(abierto[index] == 1)"  src="{{farmacias.image[0].imagen0}}">
+          <img *ngIf="!(abierto[index] == 1)"  src="{{farmacias.image[2].imagen2}}">
+          <!--<img  src="{{farmacias.image[2].imagen2}}"> -->
         </ion-avatar>
-        <div class="animateText">
-            <h2>{{farmacias.nombre}}<b></b></h2>
-              <br>
-              {{farmacias.horario.lv[0].start1}}{{farmacias.horario.lv[1].end1}}
-          </div>
-        </ion-item>
-      </ion-list>
+        <div class="beat animateImage"  >
+          <h2><b>{{farmacias.nombre}}</b></h2>
+         <br>{{farmacias.direccion}}{{farmacias.image.imagen}}
+         <p *ngIf="isLV"> Horario LaV: {{farmacias.horario.lv[0].start1}} a {{farmacias.horario.lv[1].end1}} y {{farmacias.horario.lv[2].start2}} a {{farmacias.horario.lv[3].end2}}</p>
+         <p *ngIf="isS"> Horario Sabado: {{farmacias.horario.s[0].start1}} a {{farmacias.horario.s[1].end1}} y {{farmacias.horario.s[2].start2}} a {{farmacias.horario.s[3].end2}}</p>
+         <p *ngIf="isD"> Horario Domingo: {{farmacias.horario.d[0].start1}} a {{farmacias.horario.d[1].end1}} y {{farmacias.horario.d[2].start2}} a {{farmacias.horario.d[3].end2}}</p>
+          <!-- <p> {{isOpen}}{{today}}</p> -->
+         <h2 *ngIf="(abierto[index] == 1)">Abierto</h2>
+         <h2 *ngIf="!(abierto[index] == 1)" > Cerrado</h2>
+          <!--<p >{{abierto[index] }}</p> -->
+        </div>
+      </ion-item>
+    </ion-list>
   
 </ion-content>

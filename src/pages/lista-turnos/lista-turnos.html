@@ -1,0 +1,28 @@
+
+<ion-header>
+  
+    <ion-navbar>
+      <ion-title>Farmacias de Turno Hoy</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+      <ion-list>
+        <ion-item  *ngFor="let turnos of turno2 " >
+          <ion-avatar class= "beat animateImage" item-start>
+            <img  src="assets/img/cruzAzul.png">
+            
+            <!--<img  src="{{farmacias.image[2].imagen2}}"> -->
+          </ion-avatar>
+          <div class="beat animateImage"  >
+            <h2><b>{{turnos.nombre}}</b></h2>
+           <br>{{turnos.direccion}}  {{turnos.telefono}}
+           
+          </div>
+        </ion-item>
+      </ion-list>
+    
+  </ion-content>
+  
