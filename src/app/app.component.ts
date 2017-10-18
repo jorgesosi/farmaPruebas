@@ -25,5 +25,6 @@ export class MyApp {
   }
   ngOnInit(){
     this.dataservice.obtenerdatos();
+    this.dataservice.obtenerturnos();
   }
 }

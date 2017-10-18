@@ -1,17 +1,19 @@
 export class Farmacias{
-    constructor(
+   /* constructor(
+       public id:number,
        public nombre: string,
        public direccion: string,
-       public horario: string,
+       public horario: { start1:string,end1:string, start2:string,end2:string},
        public lat: number,
        public lng: number,
        public icon: string,
        public image: string,
        public tipo: number,
-       public descrip: string ,
-       public start1: string,
-       public end1: string,
-       public start2:string,
-       public end2: string
-    ){}
+       public descrip: string 
+    ){}*/
+    constructor(
+        public id:any,
+        public nombre: any
+         
+     ){}
 }

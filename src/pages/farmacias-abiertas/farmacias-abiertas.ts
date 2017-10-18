@@ -1,38 +1,50 @@
-import { NavController, NavParams } from 'ionic-angular';
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-
-import { Farmacias } from './../../clases/farmacias';
 import { Dataservice } from './../../providers/dataservice';
+import { Component } from '@angular/core';
+import { NavController, NavParams, Platform, ToastController } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+import { AgmCoreModule } from '@agm/core';
+import { Geoposition } from "@ionic-native/geolocation";
+
 @Component({
-  selector: 'page-lista',
-  templateUrl: 'lista.html',
+  selector: 'page-farmacias-abiertas',
+  templateUrl: 'farmacias-abiertas.html',
 })
-export class ListaPage {
-  observableFarmacias: Observable<Farmacias[]>
-  farmas: Farmacias[];
-  farmacias = [];
+export class FarmaciasAbiertasPage {
   public dateFormat = require('dateformat');//se instalo el modudulo de npm dateformat para poder 
-  public contador:number=0;
+  public now = new Date();
   public start:string="";
   public end:string="";
   public start2:string="";
   public end2:string="";
-  public isLV:Boolean=true;
-  public isS:boolean=true;
-  public isD:boolean=true;
-  public abierto = [];
-  public abierto1 = [];
-  public now = new Date();
-  public today = "";
   public numeroDia=this.dateFormat(this.now,"N");//dar formato a las horas ya que lo anterior de js no funcionaba
-  public nombreDia=this.dateFormat(this.now,"dd-mm");
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams,
-              public dataService: Dataservice) {
+  public contador:number=0;  
+  public abierto1 = [];
+  farmacias=[];
+  public markers=[];
+  ubicacion ={lat:-41.138151,lng:-71.297480};
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public toastCtrl: ToastController,
+    private geolocation: Geolocation,
+    public dataService: Dataservice,
+    private platform: Platform) {
   }
- 
-  ionViewWillEnter(){
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad FarmaciasAbiertas');
+    this.geolocation.getCurrentPosition({ timeout: 6000})
+    .then(info=>{
+      this.ubicacion.lat= info.coords.latitude,
+      this.ubicacion.lng= info.coords.longitude
+     })
+    .catch(error=>{
+      let toast = this.toastCtrl.create({
+        message:'No se pudo encontrar la ubicación',
+        duration:2000
+      });
+      toast.present();
+    });
+
     this.dataService.obtenerdatos().subscribe(
       (datos)=>{
        // este codigo lo utilizo para recorrer el json y cargar los datos 
@@ -47,6 +59,9 @@ export class ListaPage {
           this.end2=data.horario.lv[3].end2;
           //this.abierto [this.contador] = this.estaAbierto(this.start, this.end, this.start2, this.end2);
           this.abierto1 [this.contador] = this.estaAbierto(this.start, this.end, this.start2, this.end2);
+          if(this.abierto1[this.contador]==true){
+            this.markers.push(data);
+          }
           this.contador ++;
         }else if(this.numeroDia ==6){
           console.log("sabado");
@@ -70,34 +85,10 @@ export class ListaPage {
 
         }
         console.log(this.abierto1);
-        console.log(this.nombreDia);
+        //console.log(this.nombreDia);
       })
-     
-    //this.estaAbierto();
-    // este codigo lo uticice para cargar los datos en la clase, pero como queda cerrado
-    // no pude recorrerlo con la funcion de esta abierto
-    this.contador=0;
-    this.observableFarmacias = this.dataService.obtenerdatos2();
-    this.observableFarmacias.subscribe(
-      farmas => this.farmas=farmas
-    )
-    if(this.numeroDia>=1 && this.numeroDia<=5){
-      this.isLV=true;
-      this.isS=false;
-      this.isD=false;
-    }
-    if(this.numeroDia==6){
-      this.isLV=false;
-      this.isS=true;
-      this.isD=false;
-    }
-    if(this.numeroDia==7){
-      this.isLV=false;
-      this.isS=false;
-      this.isD=true;
-    }
+    
   }
- 
   estaAbierto(abre:string, cierra:string, abre1: string, cierra1: string){
     //console.log("estaAbierto()")
     this.dateFormat.masks.hammerTime = 'HH:MM';
@@ -111,10 +102,10 @@ export class ListaPage {
     cierra1= cierra1.replace(":","");
     //console.log('today: '+hoy+' abre: '+ abre+ ' cierra: '+cierra);
     if((Number(hoy) > Number(abre) && Number(hoy) < Number(cierra))||(Number(hoy) > Number(abre1) && Number(hoy) < Number(cierra1))){//this.today>this.start && this.today<this.end
+      
       return true;
     }else{
       return false;
     }
   }
-  
 }

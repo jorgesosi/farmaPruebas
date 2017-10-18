@@ -9,20 +9,38 @@
   
   
   <ion-content padding>
-      <ion-list>
+
+
+    <ion-card *ngFor="let turnos of turno2 let Tid = index"
+      (click)="mostrarFarmacia(restaurante, Tid)">
+      <div class="farmacia">
+          <ion-row text-center>
+            <ion-col col-3>
+                <img  src="assets/img/cruzAzul.png">
+            </ion-col>
+            <ion-col>
+              <h1><b>{{turnos.nombre}}</b></h1>
+              <br>{{turnos.direccion}} <br> {{turnos.telefono}}
+              <h2 *ngIf="(Tid!==2)"><b>Abierto las 24 Horas</b> de 9:00  a 9:00</h2>
+              <h2 *ngIf="!(Tid!==2)"><b>Abierto hasta las 23:00 </b>de 9:00  a 23:00</h2>
+            </ion-col>
+          </ion-row>
+      </div>
+    </ion-card>
+     <!-- <ion-list>
         <ion-item  *ngFor="let turnos of turno2 " >
           <ion-avatar class= "beat animateImage" item-start>
-            <img  src="assets/img/cruzAzul.png">
+            <img  src="assets/img/cruzAzul.png">-->
             
             <!--<img  src="{{farmacias.image[2].imagen2}}"> -->
-          </ion-avatar>
+         <!-- </ion-avatar>
           <div class="beat animateImage"  >
             <h2><b>{{turnos.nombre}}</b></h2>
            <br>{{turnos.direccion}}  {{turnos.telefono}}
            
           </div>
         </ion-item>
-      </ion-list>
+      </ion-list>-->
     
   </ion-content>
   

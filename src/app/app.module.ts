@@ -1,17 +1,20 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { FarmaciasAbiertasPage } from './../pages/farmacias-abiertas/farmacias-abiertas';
+import { MapaTurnosPage } from './../pages/mapa-turnos/mapa-turnos';
+import { MapaAbiertosPage } from './../pages/mapa-abiertos/mapa-abiertos';
+import { NgModule, ErrorHandler, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { FarmaciaPage } from "../pages/farmacia/farmacia";
 import { MapaPage } from './../pages/mapa/mapa';
 import { ListaPage } from "../pages/lista/lista";
 import { Lista2Page } from './../pages/lista2/lista2';
+import { ListaTurnosPage } from './../pages/lista-turnos/lista-turnos';
+import { FarmaciasDeTurnoPage } from './../pages/farmacias-de-turno/farmacias-de-turno';
 
 import { Dataservice } from './../providers/dataservice';
 
@@ -26,34 +29,41 @@ import { GoogleMaps, GoogleMap,
 
 @NgModule({
   declarations: [
-    MyApp,
-    AboutPage,
-    ContactPage,
+    MyApp,    
     HomePage,
     FarmaciaPage,
     TabsPage,
     MapaPage,
     ListaPage,
-    Lista2Page
+    Lista2Page,
+    ListaTurnosPage,
+    MapaAbiertosPage,
+    MapaTurnosPage,
+    FarmaciasDeTurnoPage,
+    FarmaciasAbiertasPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
-      apiKey:'AIzaSyCNEBSpmaD6bW2hDCCCzhATmCY8Rwn8ffY'})
+      apiKey:'AIzaSyCNEBSpmaD6bW2hDCCCzhATmCY8Rwn8ffY'}),
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
+    MyApp,    
     HomePage,
     FarmaciaPage,
     TabsPage,
     MapaPage,
     ListaPage,
-    Lista2Page
+    Lista2Page,
+    ListaTurnosPage,
+    MapaAbiertosPage,
+    MapaTurnosPage,
+    FarmaciasDeTurnoPage,
+    FarmaciasAbiertasPage
   ],
   providers: [
     StatusBar,

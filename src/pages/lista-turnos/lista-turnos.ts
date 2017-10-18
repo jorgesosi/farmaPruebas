@@ -49,16 +49,13 @@ export class ListaTurnosPage implements OnInit{
      ayer=this.dateFormat(ayer,"dd-mm");
      now= this.dateFormat(now,"HHMM");
      let cero= 0;
-     let uno = 930;
+     let uno = 900;
      //cero=this.dateFormat(cero,"HHMM");
     //let hoy1=this.dateFormat(new Date(-1),"dd");
     
     if((Number(now)>Number(cero))&&(Number(now)<Number(uno))){
-      console.log("entre");
       hoy=ayer;
     }
-    //let hoy1=this.hoy-1;
-    console.log("cero= ",cero, "now: ",now);
     hoy=hoy.toString();
     if(hoy==dia){    
       this.dataService.obtenerFarmaciasdeturno().subscribe((farma)=>{
@@ -68,7 +65,7 @@ export class ListaTurnosPage implements OnInit{
             this.turno2.push(datos);
           }
         }
-        for(let datos of this.turno1 ){//Busca la farmacia de turno 23 hs
+        for(let datos of this.turno1 ){//Busca la farmacia de turno hasta 23 hs
           if (datos.id==id3){
             this.turno2.push(datos);
             console.log(this.turno2);

@@ -12,8 +12,8 @@
     <ion-list>
       <ion-item   *ngFor="let farmacias of farmacias ; let index = index"  >
         <ion-avatar class= "beat animateImage" item-start>
-          <img *ngIf="(abierto[index] == 1)"  src="{{farmacias.image[0].imagen0}}">
-          <img *ngIf="!(abierto[index] == 1)"  src="{{farmacias.image[2].imagen2}}">
+          <img *ngIf="(abierto1[index] == 1)"  src="{{farmacias.image[0].imagen0}}">
+          <img *ngIf="!(abierto1[index] == 1)"  src="{{farmacias.image[2].imagen2}}">
           <!--<img  src="{{farmacias.image[2].imagen2}}"> -->
         </ion-avatar>
         <div class="beat animateImage"  >
@@ -23,8 +23,8 @@
          <p *ngIf="isS"> Horario Sabado: {{farmacias.horario.s[0].start1}} a {{farmacias.horario.s[1].end1}} y {{farmacias.horario.s[2].start2}} a {{farmacias.horario.s[3].end2}}</p>
          <p *ngIf="isD"> Horario Domingo: {{farmacias.horario.d[0].start1}} a {{farmacias.horario.d[1].end1}} y {{farmacias.horario.d[2].start2}} a {{farmacias.horario.d[3].end2}}</p>
           <!-- <p> {{isOpen}}{{today}}</p> -->
-         <h2 *ngIf="(abierto[index] == 1)">Abierto</h2>
-         <h2 *ngIf="!(abierto[index] == 1)" > Cerrado</h2>
+         <h2 *ngIf="(abierto1[index] == 1)">Abierto</h2>
+         <h2 *ngIf="!(abierto1[index] == 1)" > Cerrado</h2>
           <!--<p >{{abierto[index] }}</p> -->
         </div>
       </ion-item>
