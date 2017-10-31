@@ -1,16 +1,16 @@
+import { DetallesPage } from './../detalles/detalles';
 import { NavController, NavParams } from 'ionic-angular';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-
-import { Farmacias } from './../../clases/farmacias';
+//import { Observable } from 'rxjs';
+//import { Farmacias } from './../../clases/farmacias';
 import { Dataservice } from './../../providers/dataservice';
 @Component({
   selector: 'page-lista',
   templateUrl: 'lista.html',
 })
 export class ListaPage {
-  observableFarmacias: Observable<Farmacias[]>
-  farmas: Farmacias[];
+ // observableFarmacias: Observable<Farmacias[]>
+  //farmas: Farmacias[];
   farmacias = [];
   public dateFormat = require('dateformat');//se instalo el modudulo de npm dateformat para poder 
   public contador:number=0;
@@ -21,10 +21,10 @@ export class ListaPage {
   public isLV:Boolean=true;
   public isS:boolean=true;
   public isD:boolean=true;
-  public abierto = [];
+  //public abierto = [];
   public abierto1 = [];
   public now = new Date();
-  public today = "";
+  //public today = "";
   public numeroDia=this.dateFormat(this.now,"N");//dar formato a las horas ya que lo anterior de js no funcionaba
   public nombreDia=this.dateFormat(this.now,"dd-mm");
   constructor(public navCtrl: NavController, 
@@ -77,10 +77,10 @@ export class ListaPage {
     // este codigo lo uticice para cargar los datos en la clase, pero como queda cerrado
     // no pude recorrerlo con la funcion de esta abierto
     this.contador=0;
-    this.observableFarmacias = this.dataService.obtenerdatos2();
+   /* this.observableFarmacias = this.dataService.obtenerdatos2();
     this.observableFarmacias.subscribe(
       farmas => this.farmas=farmas
-    )
+    )*/
     if(this.numeroDia>=1 && this.numeroDia<=5){
       this.isLV=true;
       this.isS=false;
@@ -96,6 +96,9 @@ export class ListaPage {
       this.isS=false;
       this.isD=true;
     }
+  }
+  detalles(item:any){
+    this.navCtrl.push(DetallesPage,{item});
   }
  
   estaAbierto(abre:string, cierra:string, abre1: string, cierra1: string){
@@ -116,5 +119,6 @@ export class ListaPage {
       return false;
     }
   }
+  
   
 }

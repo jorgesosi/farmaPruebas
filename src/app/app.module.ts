@@ -1,6 +1,3 @@
-import { FarmaciasAbiertasPage } from './../pages/farmacias-abiertas/farmacias-abiertas';
-import { MapaTurnosPage } from './../pages/mapa-turnos/mapa-turnos';
-import { MapaAbiertosPage } from './../pages/mapa-abiertos/mapa-abiertos';
 import { NgModule, ErrorHandler, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -15,6 +12,10 @@ import { ListaPage } from "../pages/lista/lista";
 import { Lista2Page } from './../pages/lista2/lista2';
 import { ListaTurnosPage } from './../pages/lista-turnos/lista-turnos';
 import { FarmaciasDeTurnoPage } from './../pages/farmacias-de-turno/farmacias-de-turno';
+import { DetallesPage } from './../pages/detalles/detalles';
+import { FarmaciasAbiertasPage } from './../pages/farmacias-abiertas/farmacias-abiertas';
+import { MapaTurnosPage } from './../pages/mapa-turnos/mapa-turnos';
+import { MapaAbiertosPage } from './../pages/mapa-abiertos/mapa-abiertos';
 
 import { Dataservice } from './../providers/dataservice';
 
@@ -40,12 +41,15 @@ import { GoogleMaps, GoogleMap,
     MapaAbiertosPage,
     MapaTurnosPage,
     FarmaciasDeTurnoPage,
-    FarmaciasAbiertasPage
+    FarmaciasAbiertasPage,
+    DetallesPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,
+      { tabsHideOnSubPages: true }
+    ),
     AgmCoreModule.forRoot({
       apiKey:'AIzaSyCNEBSpmaD6bW2hDCCCzhATmCY8Rwn8ffY'}),
     
@@ -63,7 +67,8 @@ import { GoogleMaps, GoogleMap,
     MapaAbiertosPage,
     MapaTurnosPage,
     FarmaciasDeTurnoPage,
-    FarmaciasAbiertasPage
+    FarmaciasAbiertasPage,
+    DetallesPage
   ],
   providers: [
     StatusBar,

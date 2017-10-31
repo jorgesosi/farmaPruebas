@@ -1,3 +1,4 @@
+import { DetallesPage } from './../detalles/detalles';
 import { NavController, NavParams } from 'ionic-angular';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -41,6 +42,11 @@ export class ListaTurnosPage implements OnInit{
 
   ionViewDidLoad() {}
 
+
+  detalles(item:any){
+    this.navCtrl.push(DetallesPage,{item});
+  }
+  
   estadeTurno (dia:string, id1:string, id2: string, id3: string){
     //console.log("estadeTurno()");
     let hoy=this.dateFormat(new Date(),"dd-mm");

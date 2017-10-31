@@ -1,0 +1,36 @@
+page-detalles {
+
+  agm-map {
+    
+        height: 250px;
+        margin: 0px;
+        //top: 0;
+        //left: 0;
+        //position: absolute!important;
+        //overflow: hidden!important;
+    
+}
+    #detalle {
+        background: #000000; 
+        color:#FFFFFF;
+        font-weight:bold;
+        text-align:center;
+        font-family: 'Rockwell Extra Bold', 'Rockwell Bold', monospace;
+        width: 100%;
+        margin-top: 0%;
+        display: block;
+        padding: 0%;
+          max-height: 70%;
+        height: 10%;
+      
+      }
+      #mapa {
+        height: 100%;
+        top: 60%;
+        margin-bottom: 25px;
+        filter:grayscale(90%);
+        -webkit-filter:grayscale(90%);
+
+
+    }
+}

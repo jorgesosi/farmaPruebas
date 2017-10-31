@@ -22,23 +22,31 @@ export class HomePage {
   
   mostrarFarmacias(){
     //this.navCtrl.push(Lista2Page)
-    this.navCtrl.push(FarmaciaPage)
+    //this.navCtrl.push(FarmaciaPage)
 
+    let modal = this.modalCtrl
+    .create(MapaPage, {tipo:'todo'});
+    modal.present();
+   // modal._onDidDismiss(()=>{
+      //this.restaurantes = this.restauranteService.cargarRestaurantes();
+    //})
   }
   mostrarMapa(){
-    this.navCtrl.push(MapaPage)
+    //this.navCtrl.push(MapaPage)
+    this.navCtrl.push(MapaPage,{tipo:'todo'})
   }
   mostrarFarmaciasAbiertas(){
-    this.navCtrl.push(FarmaciasAbiertasPage)
+    //this.navCtrl.push(FarmaciasAbiertasPage)
   }
   mostrarMapaTurnos(){
+    this.navCtrl.push(MapaPage,{tipo:'turno'})
     //this.navCtrl.push(MapaTurnosPage)
-    this.navCtrl.push(FarmaciasDeTurnoPage)
+    //this.navCtrl.push(FarmaciasDeTurnoPage)
   }
   mostrarListaFarmacias(){
     let modal = this.modalCtrl
-    .create(FarmaciaPage);
-
+    //.create(FarmaciaPage);
+    .create(MapaPage, {tipo:'turno'});
     modal.present();
     
   }

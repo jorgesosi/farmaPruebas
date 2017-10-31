@@ -1,3 +1,4 @@
+import { DetallesPage } from './../detalles/detalles';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Dataservice } from '../../providers/dataservice';
@@ -81,6 +82,10 @@ export class Lista2Page {
       this.isD=true;
     }
     
+  }
+
+  detalles(item:any){
+    this.navCtrl.push(DetallesPage,{item});
   }
   
   estaAbierto(abre:string, cierra:string, abre1: string, cierra1: string){
