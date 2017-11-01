@@ -1,0 +1,44 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.farmaguia268904"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.farmaguia268904"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.farmaguia268904"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.farmaguia268904"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.farmaguia268904"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.farmaguia268904"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.farmaguia268904"
+        },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_ANDROID": "AIzaSyCNEBSpmaD6bW2hDCCCzhATmCY8Rwn8ffY",
+            "PACKAGE_NAME": "com.ionicframework.farmaguia268904"
+        },
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "com.ionicframework.farmaguia268904"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.farmaguia268904"
+        }
+    }
+}

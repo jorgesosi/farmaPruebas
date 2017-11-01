@@ -1,0 +1,31 @@
+https://ionicframework.com/docs/native/geolocation/
+https://ionicframework.com/docs/native/
+
+Instalacion de la geolocalizacion
+
+$ ionic cordova plugin add cordova-plugin-geolocation
+$ npm install --save @ionic-native/geolocation
+
+agregar al modulo
+
+import { Geolocation } from '@ionic-native/Geolocation';
+
+...
+
+@NgModule({
+  providers: [
+    ...
+    Geolocation
+  ]
+})
+export class AppModule { }
+
+Uso en Page.ts
+
+import { Geolocation } from '@ionic-native/geolocation';
+
+...
+
+constructor(private geolocation: Geolocation) {}
+
+
