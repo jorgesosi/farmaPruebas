@@ -1,0 +1,107 @@
+import { NavController, NavParams } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Dataservice } from './../../providers/dataservice';
+import { Farmacias } from '../../clases/farmacias';
+@Component({
+  selector: 'page-lista-turnos',
+  templateUrl: 'lista-turnos.html',
+})
+export class ListaTurnosPage implements OnInit{
+  public dateFormat = require('dateformat');//se instalo el modudulo de npm dateformat para poder 
+  public hoy=this.dateFormat(new Date(),"dd-mm");
+  public farmacias = [];
+  public farmacias1 = [];
+  public turno = [];
+  public turno1 = [{dia:'',id1:'',id2:'',id3:''}];
+  public turno2 = [{dia:'',id1:'',id2:'',id3:''}];
+  public turno3=[];
+  public turno4=[];
+  public turno5=[];
+  public farmaciasTurno = [];
+  public farmas:Farmacias;
+  
+  
+  
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public dataService: Dataservice) {
+      this.turno5=[];
+  }
+
+  ngOnInit(): void {
+    
+    this.dataService.obtenerturnos().subscribe(
+      (datos)=>{
+        this.turno=datos;
+        //this.dataService.obtenerFarmaciasdeturno(this.turno.idFarma1,this.turno.idFarma2)
+        for(let item of this.turno) {
+          //this.turno2=this.estadeTurno( item.dia,item.idFarma1,item.idFarma2,item.idFarma3);
+          this.estadeTurno( item.dia,item.idFarma1,item.idFarma2,item.idFarma3);
+          //console.log( "obtener turno esta de tuno",this.turno1[0].dia);
+        }
+      }
+    );
+    //this.dataService.obtenerFarmaciasdeturno(this.turno.idFarma1,this.turno.idFarma2)
+    this.dataService.obtenerdatos().subscribe(
+      (datos)=>{
+        this.farmacias=datos;
+     
+        for(let data of this.farmacias) {
+         this.turno3.push(data.id,data.nombre);
+         //this.farmas.push(id:data.id) ;
+         //this.farmas.nombre = data.nombre;           
+                
+         }
+        this.farmaciasTurno.push(datos);
+      }
+    );
+  }
+
+
+  ionViewDidLoad() {
+    //console.log("2",this.farmaciasTurno[0],"turnos,",this.turno3[0]);//.map((data)=>data.json())
+  this.turno5;
+  }
+  estadeTurno (dia:string, id1:string, id2: string, id3: string){
+    //console.log("estadeTurno()");
+    this.hoy=this.hoy.toString();
+    if(this.hoy==dia){//this.today>this.start && this.today<this.end
+     // console.log("estadeTurno().if", dia,id1,id2,id3);
+      this.turno1[0].dia=dia;
+      this.turno1[0].id1=id1;
+      this.turno1[0].id2=id2;
+      this.turno1[0].id3=id3;
+      this.dataService.obtenerFarmaciasdeturno(id1).subscribe((farma)=>{
+        this.turno4=farma;
+        for(let datos of this.turno4 )
+        if (datos.id==id1){
+        this.turno5.push(datos);
+        console.log(this.turno5);
+      }
+      })
+      this.turno1.map((data)=>data);
+      return this.turno1.map((data)=>data);
+    }
+  }
+
+  farmaciasDeTurno(){
+    //console.log("farmacias de turnos:", this.turno3);
+    //console.log("farmacias de turnos2:", this.farmas);
+    //console.log("3",this.turno3);
+    let contador:number=0;
+    for(var i =0;i<42;i++){
+      //console.log(contador,this.turno1);
+     // if(this.turno1[0].id1== this.farmacias[contador].id){
+       // this.turno3[0].id=this.farmacias[0].id;
+       // this.turno3[0].nombre=this.farmaciasTurno[0].nombre;
+        //this.turno3.push();
+        //console.log(this.turno3);
+      //}
+    }
+  }
+  
+
+}
+

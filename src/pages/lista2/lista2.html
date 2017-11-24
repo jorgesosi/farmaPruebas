@@ -25,9 +25,9 @@
         <ion-col>            
                 <h2><b>{{farmacia.nombre}}</b></h2>
                   {{farmacia.direccion}}<br>
-                  <p *ngIf="isLV"> Horario LaV: {{farmacia.horario.lv[0].start1}} a {{farmacia.horario.lv[1].end1}} y {{farmacia.horario.lv[2].start2}} a {{farmacia.horario.lv[3].end2}}</p>
-                  <p *ngIf="isS"> Horario Sabado: {{farmacia.horario.s[0].start1}} a {{farmacia.horario.s[1].end1}} y {{farmacia.horario.s[2].start2}} a {{farmacia.horario.s[3].end2}}</p>
-                  <p *ngIf="isD"> Horario Domingo: {{farmacia.horario.d[0].start1}} a {{farmacia.horario.d[1].end1}} y {{farmacia.horario.d[2].start2}} a {{farmacia.horario.d[3].end2}}</p>
+                  <p *ngIf="isLV"> <b>Horario LaV: {{farmacia.horario.lv[0].start1}} a {{farmacia.horario.lv[1].end1}}</b><b *ngIf="(!farmacia.horario.lv[2].start2 == '')"> y {{farmacia.horario.lv[2].start2}} a {{farmacia.horario.lv[3].end2}}</b></p>
+                  <p *ngIf="isS"> <b>Horario Sabado: {{farmacia.horario.s[0].start1}} a {{farmacia.horario.s[1].end1}} </b><b *ngIf="(!farmacia.horario.s[2].start2 == '')">y {{farmacia.horario.s[2].start2}} a {{farmacia.horario.s[3].end2}}</b></p>
+                  <p *ngIf="isD"> <b>Horario Domingo: {{farmacia.horario.d[0].start1}} a {{farmacia.horario.d[1].end1}} </b><b *ngIf="(!farmacia.horario.s[2].start2 == '')">y {{farmacia.horario.d[2].start2}} a {{farmacia.horario.d[3].end2}}</b></p>
                    <!-- <p> {{isOpen}}{{today}}</p> -->
                   <h2 *ngIf="(abierto[index] == 1)">Abierto</h2>
                   <h2 *ngIf="!(abierto[index] == 1)" > Cerrado</h2>

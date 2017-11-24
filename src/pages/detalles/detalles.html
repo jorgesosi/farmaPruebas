@@ -11,15 +11,18 @@
   </ion-navbar>
     <div id="detalle" class="animateText">
       <h2><b>{{markers.nombre}}</b></h2>
-      <p>Teléfono: {{markers.telefono}}</p>
-      <p> Dirección: {{markers.direccion}}</p>
-      <p>Horarios</p>
+      <p>Teléfono: {{markers.telefono}}
+      <p> Dirección: {{markers.direccion}}
+      <p>Horarios
       <p>Lunes a Viernes</p>
-      <p >  {{markers.horario.lv[0].start1}} a {{markers.horario.lv[1].end1}} y {{markers.horario.lv[2].start2}} a {{markers.horario.lv[3].end2}}</p>
+      <b >  {{markers.horario.lv[0].start1}} a {{markers.horario.lv[1].end1}} </b>
+      <b *ngIf="(!markers.horario.lv[2].start2 == '')"> y {{markers.horario.lv[2].start2}} a {{markers.horario.lv[3].end2}}</b>
       <p>Sabados</p>
-      <p > Horario Sabado: {{markers.horario.s[0].start1}} a {{markers.horario.s[1].end1}} y {{markers.horario.s[2].start2}} a {{markers.horario.s[3].end2}}</p>
+      <b >{{markers.horario.s[0].start1}} a {{markers.horario.s[1].end1}}</b>
+      <b *ngIf="(!markers.horario.s[2].start2 == '')"> y {{markers.horario.s[2].start2}} a {{markers.horario.s[3].end2}}</b>
       <p>Domingos</p>
-      <p *ngIf="(!markers.horario.d[0].start1 == '')"> Horario Domingo: {{markers.horario.d[0].start1}} a {{markers.horario.d[1].end1}} y {{markers.horario.d[2].start2}} a {{markers.horario.d[3].end2}}</p>
+      <b *ngIf="(!markers.horario.d[0].start1 == '')"> {{markers.horario.d[0].start1}} a {{markers.horario.d[1].end1}} </b>
+      <b *ngIf="(!markers.horario.d[2].start2 == '')"> y {{markers.horario.d[2].start2}} a {{markers.horario.d[3].end2}}</b>
       <p *ngIf="(markers.horario.d[0].start1 == '')">Cerrado</p>   
       
     </div>
