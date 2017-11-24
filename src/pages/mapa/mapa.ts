@@ -199,13 +199,13 @@ export class MapaPage {
         options.horario.s[2].start2 + ' ' + options.horario.s[3].end2 +
         '\n Domingo\n' +
         options.horario.d[0].start1 + ' ' + options.horario.d[1].end1 + ' ' +
-        options.horario.d[2].start2 + ' ' + options.horario.d[3].end2
-      ,
+        options.horario.d[2].start2 + ' ' + options.horario.d[3].end2 ,       
+      
       styles: {
         'text-align': 'center',
         'font-style': 'italic',
         'font-weight': 'bold',
-        'color': 'red'
+        'color': 'black'
       },
       icon: icono
 
